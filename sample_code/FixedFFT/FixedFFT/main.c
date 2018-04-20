@@ -23,15 +23,15 @@ int main(int argc, char** argv)
         return 0;
     }
     /* Try to open the given file */
-    fp = fopen(argv[1], "rb");
-    if(!fp) {
+    WaveFile *waveFile = wave_open(argv[1], "rb");
+    if (!waveFile) {
         printf("File not found!\n");
         return 0;
     }
-    fseek(fp, 0, SEEK_END);
-    unsigned int Sz = ftell(fp);
-    rewind(fp);
-    short* inBuf = (short*)malloc((1<<FFT_SAMP)*2);
+    wave_seek(waveFile, 0, SEEK_END);
+    unsigned int Sz = (unsigned int)wave_tell(waveFile);
+    wave_rewind(waveFile);
+    short *inBuf = (short*)malloc((1<<FFT_SAMP)*2);
     if(!inBuf){
         fclose(fp);
         return 1;
@@ -47,7 +47,7 @@ int main(int argc, char** argv)
     
     int i = 0;
     while((i+(1<<FFT_SAMP)*2) < Sz) {
-        fread(inBuf, 1, (1<<FFT_SAMP)*2, fp);
+        wave_read((void**)&inBuf, (1<<FFT_SAMP)*2, waveFile);
         fix_fftr(inBuf, FFT_SAMP, 0);
         if(argv[3][0]=='1')
             fix_fftr(inBuf, FFT_SAMP, 1);
