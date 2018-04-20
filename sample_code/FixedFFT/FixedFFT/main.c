@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "fix_fft.h"
+#include "libwav/wave.h"
 
 FILE*fp;
 

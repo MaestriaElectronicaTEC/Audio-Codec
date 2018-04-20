@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9B006A53207E6CF9001FAC8E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B006A52207E6CF9001FAC8E /* main.c */; };
 		9B006A5B207E6DAF001FAC8E /* fix_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B006A5A207E6DAF001FAC8E /* fix_fft.c */; };
+		9B936D83208A501C008B9037 /* libwave_static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B936D82208A501C008B9037 /* libwave_static.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		9B006A52207E6CF9001FAC8E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		9B006A59207E6DAF001FAC8E /* fix_fft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fix_fft.h; sourceTree = "<group>"; };
 		9B006A5A207E6DAF001FAC8E /* fix_fft.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = fix_fft.c; sourceTree = "<group>"; };
+		9B936D82208A501C008B9037 /* libwave_static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwave_static.a; sourceTree = "<group>"; };
+		9B936D84208A502D008B9037 /* libwav */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libwav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B936D83208A501C008B9037 /* libwave_static.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +50,7 @@
 			children = (
 				9B006A51207E6CF8001FAC8E /* FixedFFT */,
 				9B006A50207E6CF8001FAC8E /* Products */,
+				9B936D81208A501C008B9037 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,11 +65,20 @@
 		9B006A51207E6CF8001FAC8E /* FixedFFT */ = {
 			isa = PBXGroup;
 			children = (
+				9B936D84208A502D008B9037 /* libwav */,
 				9B006A52207E6CF9001FAC8E /* main.c */,
 				9B006A59207E6DAF001FAC8E /* fix_fft.h */,
 				9B006A5A207E6DAF001FAC8E /* fix_fft.c */,
 			);
 			path = FixedFFT;
+			sourceTree = "<group>";
+		};
+		9B936D81208A501C008B9037 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B936D82208A501C008B9037 /* libwave_static.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +258,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -252,6 +270,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
