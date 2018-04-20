@@ -15,46 +15,62 @@ FILE*fp;
 
 #define FFT_SAMP (9)
 
+#define BLOCKSIZE   256
+
+static inline size_t container_size(size_t sample_size)
+{
+    size_t ret = 1;
+    int i = 0;
+    
+    do {
+        if (ret >= sample_size) {
+            return ret;
+        }
+        ++i;
+        ret <<= 1;
+    } while (i < 8*sizeof(size_t));
+    
+    return (size_t)1 << (i - 1);
+}
+
 char help[] = "usage: <in> <out> <inverse? 1 : 0>";
 int main(int argc, char** argv)
 {
-    if(argc < 3){
-        printf("%s\n", help);
-        return 0;
-    }
     /* Try to open the given file */
-    WaveFile *waveFile = wave_open(argv[1], "rb");
+    WaveFile *waveFile = wave_open(/*argv[1]*/"music_test_0.wav", "rb");
     if (!waveFile) {
         printf("File not found!\n");
         return 0;
     }
-    wave_seek(waveFile, 0, SEEK_END);
-    unsigned int Sz = (unsigned int)wave_tell(waveFile);
-    wave_rewind(waveFile);
-    short *inBuf = (short*)malloc((1<<FFT_SAMP)*2);
+    int nch = wave_get_num_channels(waveFile);
+    short **inBuf = (short**)malloc(nch * sizeof(short*));
     if(!inBuf){
-        fclose(fp);
+        wave_close(waveFile);
         return 1;
     }
     
+    int blockSize = (1<<FFT_SAMP)*2;
+    int i;
+    for (i=0; i<nch; ++i) {
+        inBuf[i] = malloc(container_size(wave_get_sample_size(waveFile)) * blockSize);
+    }
+    
     /* try to create a file */
-    FILE* out = fopen(argv[2], "wb");
+    FILE* out = fopen(/*argv[2]*/"out.txt", "wb");
     if(out==NULL){
-        fclose(fp);
+        wave_close(waveFile);
         free(inBuf);
         printf("%s couldn't be created!\n", argv[2]);
     }
     
-    int i = 0;
-    while((i+(1<<FFT_SAMP)*2) < Sz) {
-        wave_read((void**)&inBuf, (1<<FFT_SAMP)*2, waveFile);
-        fix_fftr(inBuf, FFT_SAMP, 0);
-        if(argv[3][0]=='1')
-            fix_fftr(inBuf, FFT_SAMP, 1);
-        fwrite(inBuf, 1, (1<<FFT_SAMP)*2, out);
-        i+= (1<<FFT_SAMP)*2;
-    }
-    fclose(fp);
+    size_t readlen;
+    do {
+        readlen = wave_read((void**)inBuf, blockSize, waveFile);
+        fix_fftr(inBuf[0], FFT_SAMP, 0);
+        fwrite(inBuf[0], 1, blockSize, out);
+    } while (readlen == blockSize);
+    
+    wave_close(waveFile);
     fclose(out);
     free(inBuf);
     return 1;
