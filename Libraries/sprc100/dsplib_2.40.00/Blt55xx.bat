@@ -1,9 +1,9 @@
 rem this file is for building DSPLIB in large memory module
 
-call c:\ti\dosrun.bat
+call dosrun.bat
 
 
-set OPTIONS= -g -ml -v5510:2 
+set OPTIONS= -g -ml -v5502
 set DSPLIB=55xdspx
 set SRC=55x_src
 set FILES= *.asm
