@@ -1,0 +1,160 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.1                      
+******************************************************************************
+>> Linked Fri Apr 20 22:41:02 2018
+
+OUTPUT FILE NAME:   <FixedEncoder.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000001d6
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  RAM                   00000100   0000feff  00000554  0000f9ab  R IX
+  ROM                   00010000   0000ffff  00000010  0000ffef  RWIX
+  VECS                  00ffff00   00000100  00000100  00000000  R IX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.pinit       0   [ 00010000 ]  00008000          *   00000000   UNINITIALIZED
+
+.text        0     00000100  [ 00000080 ] 0000012a          *   
+                   00000100  [ 00000080 ] 0000004d          *   rts55x.lib : autoinit.obj (.text)
+                   0000014d  [ 000000a6+] 0000004b          *              : args_main.obj (.text)
+                   00000198  [ 000000cc ] 0000003e          *              : exit.obj (.text)
+                   000001d6  [ 000000eb ] 00000034          *              : boot.obj (.text)
+                   0000020a  [ 00000105 ] 00000012          *              : _lock.obj (.text)
+                   0000021c  [ 0000010e ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00000223  [ 00000111+] 00000004          *   main.obj (.text)
+                   00000227  [ 00000113+] 00000002          *   rts55x.lib : vectors.obj (.text)
+                   00000229  [ 00000114 ] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 0000022a ]  00000115          *   00000015   
+                 [ 0000022a ]  00000115          *   0000000a   rts55x.lib : _lock.obj (.cinit)
+                 [ 0000023e ]  0000011f          *   0000000a              : exit.obj (.cinit)
+                 [ 00000252 ]  00000129          *   00000001   --HOLE-- [fill = 0]
+
+.stack       0   [ 00000254 ]  0000012a          *   00000100   UNINITIALIZED
+                 [ 00000254 ]  0000012a          *   00000100   --HOLE--
+
+.sysstack 
+*            0   [ 00000454 ]  0000022a          *   00000100   UNINITIALIZED
+                 [ 00000454 ]  0000022a          *   00000100   --HOLE--
+
+.data        0   [ 00010000 ]  00008000          *   00000000   UNINITIALIZED
+
+.bss         0   [ 00010000 ]  00008000          *   00000008   UNINITIALIZED
+                 [ 00010000 ]  00008000          *   00000004   rts55x.lib : _lock.obj (.bss)
+                 [ 00010008 ]  00008004          *   00000004              : exit.obj (.bss)
+
+vectors      0     00ffff00  [ 007fff80 ] 00000100          *   
+                   00ffff00  [ 007fff80 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            00008000    .bss
+            00008000    .data
+00000100                .text
+0000021d                C$$EXIT
+00ffff00                _Reset
+            0000022a    __STACK_END
+00000200                __STACK_SIZE
+00000200                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+            00008000    ___bss__
+ffffffff                ___c_args__
+            00000115    ___cinit__
+            00008000    ___data__
+            00008000    ___edata__
+            00008008    ___end__
+0000022a                ___etext__
+ffffffff                ___pinit__
+00000100                ___text__
+0000014d                __args_main
+            00008004    __cleanup_ptr
+            00008006    __dtors_ptr
+            00008000    __lock
+0000021a                __nop
+00000212                __register_lock
+0000020a                __register_unlock
+            0000012a    __stack
+            0000022a    __sysstack
+            00008002    __unlock
+0000021c                _abort
+00000100                _auto_init
+000001d6                _c_int00
+00000198                _exit
+00000223                _main
+ffffffff                binit
+            00000115    cinit
+            00008000    edata
+            00008008    end
+0000022a                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000100                .text
+00000100                ___text__
+00000100                _auto_init
+0000014d                __args_main
+00000198                _exit
+000001d6                _c_int00
+00000200                __STACK_SIZE
+00000200                __SYSSTACK_SIZE
+0000020a                __register_unlock
+00000212                __register_lock
+0000021a                __nop
+0000021c                _abort
+0000021d                C$$EXIT
+00000223                _main
+            00000115    ___cinit__
+0000022a                ___etext__
+            00000115    cinit
+0000022a                etext
+            0000012a    __stack
+            0000022a    __STACK_END
+            0000022a    __sysstack
+            00008000    .bss
+            00008000    .data
+            00008000    ___bss__
+            00008000    ___data__
+            00008000    ___edata__
+            00008000    __lock
+            00008000    edata
+            00008002    __unlock
+            00008004    __cleanup_ptr
+            00008006    __dtors_ptr
+            00008008    ___end__
+            00008008    end
+00ffff00                _Reset
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                pinit
+
+[43 symbols]
