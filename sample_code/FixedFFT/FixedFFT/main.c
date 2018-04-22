@@ -67,6 +67,7 @@ int main(int argc, char** argv)
     do {
         readlen = wave_read((void**)inBuf, blockSize, waveFile);
         fix_fftr(inBuf[0], FFT_SAMP, 0);
+        short coeff = *inBuf[0];
         fwrite(inBuf[0], 1, blockSize, out);
     } while (readlen == blockSize);
     
