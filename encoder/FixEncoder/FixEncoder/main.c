@@ -53,8 +53,11 @@ int main(int argc, char** argv)
     printf("Sample rate: %i\n", sampleRate);
     uint32_t waveFormat = wave_get_format(waveFile);
     printf("Format: %i\n", waveFormat);
-    
+    uint32_t bps = wave_get_valid_bits_per_sample(waveFile);
+    printf("BPS: %i\n", bps);
     int nch = wave_get_num_channels(waveFile);
+    printf("Channels: %i\n", nch);
+
     short **inBuf = (short**)malloc(nch * sizeof(short*));
     if(!inBuf){
         wave_close(waveFile);
