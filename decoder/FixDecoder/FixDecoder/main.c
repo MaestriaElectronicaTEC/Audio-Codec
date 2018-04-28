@@ -17,24 +17,27 @@
 #define BPS 16
 #define SAMPLE_SIZE 2
 
-#define FFT_SAMP (10)
+#define FFT_SAMP (8)
 #define BLOCKSIZE 1024
+
+#define CHUNK 64
 
 char help[] = "usage: <in> <out>";
 int main(int argc, const char * argv[]) {
     
-    if(argc < 3){
+    /*if(argc < 3){
         printf("%s\n", help);
         return 0;
-    }
+    }*/
     
-    FILE* fp = fopen(argv[1], "rb");
+    FILE* fp = fopen(/*argv[1]*/"out.rr", "rb");
     if(fp==NULL){
         printf("%s couldn't be created!\n", argv[1]);
     }
+    fseek(fp, 0, SEEK_SET);
     
     /* Init a wave file */
-    WaveFile *waveFile = wave_open((char *)argv[2], "wb");
+    WaveFile *waveFile = wave_open(/*(char *)argv[2]*/"music_test_0.wav", "wb");
     wave_set_format(waveFile, FORMAT);
     wave_set_num_channels(waveFile, CHANNELS);
     wave_set_sample_rate(waveFile, SAMPLE_RATE);
@@ -50,22 +53,22 @@ int main(int argc, const char * argv[]) {
     }
     int i;
     for (i=0; i<CHANNELS; ++i) {
-        inBuf[i] = malloc(BLOCKSIZE);
+        inBuf[i] = malloc(CHUNK*sizeof(short));
     }
     
     size_t readlen;
     do {
         //Read coefficients of channel 1
-        readlen = fread(inBuf[0], BLOCKSIZE, 1, fp);
+        readlen = fread(inBuf[0], sizeof(short), CHUNK, fp);
         fix_fftr(inBuf[0], FFT_SAMP, 1);
         
         //Read coefficients of channel 2
-        readlen = fread(inBuf[1], BLOCKSIZE, 1, fp);
+        readlen = fread(inBuf[1], sizeof(short), CHUNK, fp);
         fix_fftr(inBuf[1], FFT_SAMP, 1);
         
         //Write the WAV
-        wave_write((void**)inBuf, BLOCKSIZE, waveFile);
-    } while (readlen == BLOCKSIZE);
+        wave_write((void**)inBuf, CHUNK*sizeof(short), waveFile);
+    } while (readlen == /*BLOCKSIZE*/CHUNK);
     
     wave_close(waveFile);
     fclose(fp);

@@ -15,10 +15,12 @@
 FILE*fp;
 FILE* out;
 
-#define FFT_SAMP (10)
+#define FFT_SAMP (8)
 #define BLOCKSIZE 1024
 #define MIN_FREC 20
 #define MAX_FREC 20000
+
+#define CHUNK 64
 
 fix16_t _minFrec = 1310720;     //20Hz
 fix16_t _maxFrec = 1310720000;  //20000Hz
@@ -36,13 +38,13 @@ void storeCoeff(short **inBuf, size_t fs, int ch) {
 char help[] = "usage: <in> <out>";
 int main(int argc, char** argv)
 {
-    if(argc < 3){
+    /*if(argc < 3){
         printf("%s\n", help);
         return 0;
-    }
+    }*/
     
     /* Try to open the given file */
-    WaveFile *waveFile = wave_open(argv[1], "rb");
+    WaveFile *waveFile = wave_open(/*argv[1]*/"music_test_0.wav", "rb");
     if (!waveFile) {
         printf("File not found!\n");
         return 0;
@@ -66,30 +68,30 @@ int main(int argc, char** argv)
     
     int i;
     for (i=0; i<nch; ++i) {
-        inBuf[i] = malloc(BLOCKSIZE);
+        inBuf[i] = malloc(CHUNK*sizeof(short));
     }
     
     /* try to create a file */
-    out = fopen(argv[2], "wb");
+    out = fopen(/*argv[2]*/"out.rr", "wb");
     if(out==NULL){
         wave_close(waveFile);
         free(inBuf);
-        printf("%s couldn't be created!\n", argv[2]);
+        printf("%s couldn't be created!\n", /*argv[2]*/"out.rr");
     }
     
     size_t index = 0;
     size_t readlen;
     do {
-        readlen = wave_read((void**)inBuf, BLOCKSIZE, waveFile);
+        readlen = wave_read((void**)inBuf, CHUNK*sizeof(short), waveFile);
         fix_fftr(inBuf[0], FFT_SAMP, 0);
         //storeCoeff(inBuf, sampleRate, 0);
-        fwrite(inBuf[0], 1, BLOCKSIZE, out);
+        fwrite(inBuf[0], 1, CHUNK*sizeof(short), out);
         fix_fftr(inBuf[1], FFT_SAMP, 0);
         //storeCoeff(inBuf, sampleRate, 1);
-        fwrite(inBuf[1], 1, BLOCKSIZE, out);
+        fwrite(inBuf[1], 1, CHUNK*sizeof(short), out);
         
         index++;
-    } while (readlen == BLOCKSIZE);
+    } while (readlen == /*BLOCKSIZE*/128);
     
     wave_close(waveFile);
     fclose(out);
