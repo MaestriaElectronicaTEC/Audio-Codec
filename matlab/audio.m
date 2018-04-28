@@ -1,25 +1,10 @@
-% Specify the parameters of a signal with a sampling frequency of 8 kHz and a signal
-% duration of 8 miliseconds.
-
-Fs = 8000;            % Sampling frequency                    
-T = 1/Fs;             % Sampling period       
-L = 8000	;             % Length of signal (samples)
-t = (0:L-1)*T;        % Time vector
-
-% Create a signal containing
-%	50 Hz sinusoid of amplitude 0.7
-%	120 Hz sinusoid of amplitude 1
-%	zero-mean white noise with a variance of 4
-% Then transform it to int16 representation with a 10k scaling
-
-S = 0.7*sin(2*pi*50*t) + sin(2*pi*120*t);
-X1 = S + 2*randn(size(t));
-
+% Read data from WAV audio file 
+[X1,Fs] = audioread('music_test_0.wav');
+X1 = X1(:,1)';
 
 % Map
 function bytePack = map(X)
   bytePack = [];
-  X = X(1:floor(length(X)/64)*64);
   % Original number of bits
   BitsI = length(X)*128; % 1 Complex = 128 bits
   for base = 1 : 64 : length(X)
