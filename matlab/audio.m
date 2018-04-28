@@ -1,5 +1,6 @@
 % Read data from WAV audio file 
 [X1,Fs] = audioread('music_test_0.wav');
+audiofile = 'reconstructed_audio.wav'
 X1 = X1(:,1)';
 
 % Map
@@ -98,5 +99,6 @@ Pack = map(X1);
 %TODO: guardar y abrir Byte Pack
 X2 = unmap(Pack);
 X1 = X1(1:length(X2));
+audiowrite(audiofile,X2,Fs);
 Error = [num2str(100*norm(X1-X2)/norm(X1)) "%"]
 plotWavesFft(X1, X2, Fs);
