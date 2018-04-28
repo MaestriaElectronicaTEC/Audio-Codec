@@ -53,6 +53,10 @@ function X = unmap(bytePack)
       X = [X(1:end-1) (X(end)+X1(1))/2 X1(2:end)];
     endif
   endfor
+  Y = fft(X);
+  x = 0:1:length(Y)-1;
+  g = 2.*e.^((-(x).^2)./(2*(length(Y)/8)**2));
+  X = real(ifft(Y.*g));
 endfunction
 
 function plotWavesFft(X1, X2, Fs)
