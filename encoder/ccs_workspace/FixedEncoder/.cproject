@@ -43,15 +43,16 @@
 									<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\Users\Luis\Documents\GitHub\Audio-Codec\include&quot;"/>
 								</option>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.OPT_LEVEL.131254884" name="Optimization level (--opt_level, -O)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.OPT_LEVEL" value="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.OPT_LEVEL.3" valueType="enumerated"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__C_SRCS.785540392" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__C_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__CPP_SRCS.1441222821" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__CPP_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__ASM_SRCS.2107337119" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__ASM_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__ASM2_SRCS.1616086519" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__ASM2_SRCS"/>
 							</tool>
 							<tool id="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.linkerDebug.364191975" name="C5500 Linker" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.linkerDebug">
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.STACK_SIZE.22819281" name="Set C system stack size (--stack_size, -stack)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.STACK_SIZE" value="0x200" valueType="string"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.STACK_SIZE.22819281" name="Set C system stack size (--stack_size, -stack)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.STACK_SIZE" value="0x400" valueType="string"/>
 								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.SYS_STACKSIZE.1541337837" name="Specify size of output sysstack section (--sys_stacksize, -sysstack)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.SYS_STACKSIZE" value="0x200" valueType="string"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.HEAP_SIZE.2077282857" name="Heap size for C/C++ dynamic memory allocation (--heap_size, -heap)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.HEAP_SIZE" value="0x400" valueType="string"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.HEAP_SIZE.2077282857" name="Heap size for C/C++ dynamic memory allocation (--heap_size, -heap)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.HEAP_SIZE" value="0x600" valueType="string"/>
 								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.OUTPUT_FILE.876725832" name="Specify output file name (--output_file, -o)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.OUTPUT_FILE" value="&quot;${ProjName}.out&quot;" valueType="string"/>
 								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.MAP_FILE.795301328" name="Input and output sections listed into &lt;file&gt; (--map_file, -m)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.MAP_FILE" value="&quot;${ProjName}.map&quot;" valueType="string"/>
 								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.XML_LINK_INFO.1252838973" name="Detailed link information data-base into &lt;file&gt; (--xml_link_info, -xml_link_info)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.XML_LINK_INFO" value="&quot;${ProjName}_linkInfo.xml&quot;" valueType="string"/>
@@ -96,21 +97,21 @@
 								<listOptionValue builtIn="false" value="RUNTIME_SUPPORT_LIBRARY=libc.a"/>
 								<listOptionValue builtIn="false" value="OUTPUT_TYPE=executable"/>
 							</option>
-							<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.255423264" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="4.4.1" valueType="string"/>
+							<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.255423264" name="Compiler version" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="4.4.1" valueType="string"/>
 							<targetPlatform id="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.targetPlatformRelease.1029625080" name="Platform" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.targetPlatformRelease"/>
-							<builder buildPath="${BuildDirectory}" id="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.builderRelease.1786621363" name="GNU Make.Release" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.builderRelease"/>
+							<builder buildPath="${BuildDirectory}" id="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.builderRelease.1786621363" keepEnvironmentInBuildfile="false" name="GNU Make" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.builderRelease"/>
 							<tool id="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.compilerRelease.245750540" name="C5500 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.compilerRelease">
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DEFINE.1040598697" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DEFINE" valueType="definedSymbols">
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DEFINE.1040598697" name="Pre-define NAME (--define, -D)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DEFINE" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="c5502"/>
 								</option>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.MEMORY_MODEL.1920862192" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.MEMORY_MODEL" value="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.MEMORY_MODEL.large" valueType="enumerated"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.PTRDIFF_SIZE.1939242916" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.PTRDIFF_SIZE" value="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.PTRDIFF_SIZE.32" valueType="enumerated"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.SILICON_VERSION.424215819" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.SILICON_VERSION" value="5502" valueType="string"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DIAG_WARNING.1076545409" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DIAG_WARNING" valueType="stringList">
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.MEMORY_MODEL.1920862192" name="Specify memory model (small/large/huge) (--memory_model)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.MEMORY_MODEL" value="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.MEMORY_MODEL.large" valueType="enumerated"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.PTRDIFF_SIZE.1939242916" name="Specify type size to hold results of pointer math (--ptrdiff_size)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.PTRDIFF_SIZE" value="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.PTRDIFF_SIZE.32" valueType="enumerated"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.SILICON_VERSION.424215819" name="device+optional revision of target silicon (--silicon_version, -v)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.SILICON_VERSION" value="5502" valueType="string"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DIAG_WARNING.1076545409" name="Treat diagnostic &lt;id&gt; as warning (--diag_warning, -pdsw)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DIAG_WARNING" valueType="stringList">
 									<listOptionValue builtIn="false" value="225"/>
 								</option>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DISPLAY_ERROR_NUMBER.1542830736" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DISPLAY_ERROR_NUMBER" value="true" valueType="boolean"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.INCLUDE_PATH.1978393060" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.INCLUDE_PATH" valueType="includePath">
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DISPLAY_ERROR_NUMBER.1542830736" name="Emit diagnostic identifier numbers (--display_error_number, -pden)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.DISPLAY_ERROR_NUMBER" value="true" valueType="boolean"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.INCLUDE_PATH.1978393060" name="Add dir to #include search path (--include_path, -I)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compilerID.INCLUDE_PATH" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
 								</option>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__C_SRCS.1961814979" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__C_SRCS"/>
@@ -119,18 +120,18 @@
 								<inputType id="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__ASM2_SRCS.683032786" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.compiler.inputType__ASM2_SRCS"/>
 							</tool>
 							<tool id="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.linkerRelease.1558293575" name="C5500 Linker" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.linkerRelease">
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.STACK_SIZE.864199637" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.STACK_SIZE" value="0x200" valueType="string"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.SYS_STACKSIZE.362466630" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.SYS_STACKSIZE" value="0x200" valueType="string"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.HEAP_SIZE.2096655404" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.HEAP_SIZE" value="0x400" valueType="string"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.OUTPUT_FILE.2035447957" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.OUTPUT_FILE" value="&quot;${ProjName}.out&quot;" valueType="string"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.MAP_FILE.612531529" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.MAP_FILE" value="&quot;${ProjName}.map&quot;" valueType="string"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.XML_LINK_INFO.1678531559" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.XML_LINK_INFO" value="&quot;${ProjName}_linkInfo.xml&quot;" valueType="string"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.DISPLAY_ERROR_NUMBER.1269190614" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.DISPLAY_ERROR_NUMBER" value="true" valueType="boolean"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.SEARCH_PATH.80622841" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.SEARCH_PATH" valueType="libPaths">
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.STACK_SIZE.864199637" name="Set C system stack size (--stack_size, -stack)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.STACK_SIZE" value="0x200" valueType="string"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.SYS_STACKSIZE.362466630" name="Specify size of output sysstack section (--sys_stacksize, -sysstack)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.SYS_STACKSIZE" value="0x200" valueType="string"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.HEAP_SIZE.2096655404" name="Heap size for C/C++ dynamic memory allocation (--heap_size, -heap)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.HEAP_SIZE" value="0x400" valueType="string"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.OUTPUT_FILE.2035447957" name="Specify output file name (--output_file, -o)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.OUTPUT_FILE" value="&quot;${ProjName}.out&quot;" valueType="string"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.MAP_FILE.612531529" name="Input and output sections listed into &lt;file&gt; (--map_file, -m)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.MAP_FILE" value="&quot;${ProjName}.map&quot;" valueType="string"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.XML_LINK_INFO.1678531559" name="Detailed link information data-base into &lt;file&gt; (--xml_link_info, -xml_link_info)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.XML_LINK_INFO" value="&quot;${ProjName}_linkInfo.xml&quot;" valueType="string"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.DISPLAY_ERROR_NUMBER.1269190614" name="Emit diagnostic identifier numbers (--display_error_number)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.DISPLAY_ERROR_NUMBER" value="true" valueType="boolean"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.SEARCH_PATH.80622841" name="Add &lt;dir&gt; to library search path (--search_path, -i)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.SEARCH_PATH" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/lib&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
 								</option>
-								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.LIBRARY.247742290" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.LIBRARY" valueType="libs">
+								<option id="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.LIBRARY.247742290" name="Include library file or command file as input (--library, -l)" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.linkerID.LIBRARY" valueType="libs">
 									<listOptionValue builtIn="false" value="&quot;libc.a&quot;"/>
 								</option>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C5500_4.4.exeLinker.inputType__CMD_SRCS.684260800" name="Linker Command Files" superClass="com.ti.ccstudio.buildDefinitions.C5500_4.4.exeLinker.inputType__CMD_SRCS"/>

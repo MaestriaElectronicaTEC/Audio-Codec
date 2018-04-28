@@ -110,19 +110,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: FixedEncoder.out
+all: FixedDecoder.out
 
 # Tool invocations
-FixedEncoder.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
+FixedDecoder.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C5500 Linker'
-	"C:/ti/ccsv5/tools/compiler/c5500_4.4.1/bin/cl55" -v5502 --memory_model=large -O3 -g --define=c5502 --display_error_number --diag_warning=225 --ptrdiff_size=32 -z -m"FixedEncoder.map" --stack_size=0x400 --heap_size=0x600 -i"C:/ti/ccsv5/tools/compiler/c5500_4.4.1/lib" -i"C:/ti/ccsv5/tools/compiler/c5500_4.4.1/include" -i"C:/Users/Luis/Documents/GitHub/Audio-Codec/include" --reread_libs --display_error_number --warn_sections --xml_link_info="FixedEncoder_linkInfo.xml" --rom_model --sys_stacksize=0x200 -o "FixedEncoder.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv5/tools/compiler/c5500_4.4.1/bin/cl55" -v5502 --memory_model=large -g --define=c5502 --display_error_number --diag_warning=225 --ptrdiff_size=32 -z -m"FixedDecoder.map" --stack_size=0x200 --heap_size=0x400 -i"C:/ti/ccsv5/tools/compiler/c5500_4.4.1/lib" -i"C:/ti/ccsv5/tools/compiler/c5500_4.4.1/include" -i"C:/Users/Luis/Documents/GitHub/Audio-Codec/include" --reread_libs --display_error_number --warn_sections --xml_link_info="FixedDecoder_linkInfo.xml" --rom_model --sys_stacksize=0x200 -o "FixedDecoder.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(C5500_EXECUTABLE_OUTPUTS__QUOTED) "FixedEncoder.out"
+	-$(RM) $(C5500_EXECUTABLE_OUTPUTS__QUOTED) "FixedDecoder.out"
 	-$(RM) "main.pp" 
 	-$(RM) "main.obj" 
 	-@echo 'Finished clean'
