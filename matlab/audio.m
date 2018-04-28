@@ -7,7 +7,7 @@ function bytePack = map(X)
   bytePack = [];
   % Original number of bits
   BitsI = length(X)*128; % 1 Complex = 128 bits
-  for base = 1 : 64 : length(X)
+  for base = 1 : 63 : length(X)-64
     Y = fft(X(base:base+63));
     rY = [Y(1) real(Y(2:32))];
     iY = [Y(33) imag(Y(2:32))];
@@ -16,8 +16,8 @@ function bytePack = map(X)
     rY = uint8((rY.+abs(o))./q);
     iY = uint8((iY.+abs(o))./q);
     %save o and q using 8.8 fixed point
-    q = uint16(q*256);
-    o = uint16(o*256);
+    q = double(q*256);
+    o = double(o*256);
     qu = uint8(floor(q/256));
     ql = uint8(mod(q,256));
     ou = uint8(floor(o/256));
@@ -45,7 +45,12 @@ function X = unmap(bytePack)
     Y = rY(2:end) + i*iY(2:end);
     Y = [rY(1) Y iY(1) fliplr(conj(Y))];
     %IFFT
-    X = [X real(ifft(Y))];
+    X1 = real(ifft(Y));
+    if length(X)==0
+      X = X1; 
+    else
+      X = [X(1:end-1) (X(end)+X1(1))/2 X1(2:end)];
+    endif
   endfor
 endfunction
 
@@ -89,9 +94,9 @@ function plotWavesFft(X1, X2, Fs)
   ylabel('|P1(f)|')
 endfunction
 
-%TODO: abrir archivo de audio en lugar de X1 generada
 Pack = map(X1);
 %TODO: guardar y abrir Byte Pack
 X2 = unmap(Pack);
+X1 = X1(1:length(X2));
 Error = [num2str(100*norm(X1-X2)/norm(X1)) "%"]
 plotWavesFft(X1, X2, Fs);
