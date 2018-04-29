@@ -1,6 +1,7 @@
 % Read data from WAV audio file 
 [X1,Fs] = audioread('music_test_0.wav');
-audiofile = 'reconstructed_audio.wav'
+audiofile = 'reconstructed_audio.wav';
+filename = 'byte_pack';
 X1 = X1(:,1)';
 
 % Map
@@ -100,7 +101,15 @@ function plotWavesFft(X1, X2, Fs)
 endfunction
 
 Pack = map(X1);
-%TODO: guardar y abrir Byte Pack
+
+% write and read binary
+fid = fopen( filename, 'w' );
+fwrite( fid, Pack, 'uint8' );
+fclose( fid );
+fid = fopen( filename, 'r' );
+Pack = fread( fid, size(Pack), 'uint8' );
+fclose( fid );
+
 X2 = unmap(Pack);
 X1 = X1(1:length(X2));
 audiowrite(audiofile,X2,Fs);
